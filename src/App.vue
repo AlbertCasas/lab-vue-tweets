@@ -1,6 +1,10 @@
 <template>
   <div class="app">
-    <Tweet />
+    <Tweet v-for="(tweet, index) in tweets"
+    :key="index"
+    :user="tweet.user"
+    :timestamp="tweet.timestamp"
+    :message="tweet.message"/>
   </div>
 </template>
 
@@ -141,6 +145,10 @@ export default {
     color: #536471;
     margin-left: 3px;
     margin-right: 3px;
+  }
+
+  .handle::before {
+    content: "@";
   }
 
   .timestamp {
